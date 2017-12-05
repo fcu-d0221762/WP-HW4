@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>請選擇學院</h3>
+<select id="collegeElement" onchange="onClickFunc(this)"></select>
+
+<h3>選擇系別</h3>
+<select id="departmentElement">
+    <option value="0">(空)</option>
+</select>
+
+<script>
+
+    var departmentArr = ["請選擇", "工學院", "商學院", "理學院"];
+    var showOption = "";
+
+    for (var i = 0; i < departmentArr.length; i++) {
+        showOption += "<option value=" + i + ">" + departmentArr[i] + "</option>";
+    }
+    document.getElementById("collegeElement").innerHTML = showOption;
+
+    function onClickFunc(valueNum) {
+
+        var engineeringArr = ["工工系", "化工系", "航太系"];
+        var commerceArr = ["會計系", "企管系", "財稅系"];
+        var scienceArr = ["應數系", "環科系", "材料系"];
+
+        var i = 0;
+        var showOption = "";
+        var getAction = document.getElementById("departmentElement");
+
+        switch (valueNum.value) {
+            case "0":
+                getAction.innerHTML = "<option value=" + 0 + ">(空)</option>";
+
+                break;
+
+            case "1":
+
+                for (i = 0; i < engineeringArr.length; i++) {
+                    showOption += "<option value=" + i + ">" + engineeringArr[i] + "</option>";
+                }
+                getAction.innerHTML = showOption;
+                break;
+
+            case "2":
+
+                for (i = 0; i < commerceArr.length; i++) {
+                    showOption += "<option value=" + i + ">" + commerceArr[i] + "</option>";
+                }
+                getAction.innerHTML = showOption;
+                break;
+
+            case "3":
+
+                for (i = 0; i < scienceArr.length; i++) {
+                    showOption += "<option value=" + i + ">" + scienceArr[i] + "</option>";
+                }
+                getAction.innerHTML = showOption;
+                break;
+
+                break;
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
